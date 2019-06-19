@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import docx
 import os
 import re
@@ -6,7 +8,10 @@ from sys import argv
 assert len(argv) > 2, "Missing argument...\n Usage: {} folder_name keywords.txt".format(argv[0])
 
 keywords = [] 
-transcripts = os.listdir(argv[1])
+transcripts = []
+local = os.listdir(argv[1])
+for transcript in local:
+	transcripts.append(os.path.join(argv[1], transcript))
 
 with open(argv[2], "r") as f:
 	for line in f.read().splitlines():
@@ -16,7 +21,7 @@ with open(argv[2], "r") as f:
 with open("output.txt", "w+") as f:
 	for transcript in transcripts:
 		if transcript.endswith(".docx"):
-			f.write("{}\n".format(transcript))
+			f.write("File: {}\nKeywords:\n".format(transcript))
 			document = docx.Document(transcript)
 			text = [paragraph.text.encode('utf-8') for paragraph in document.paragraphs]
 			for word in keywords:
