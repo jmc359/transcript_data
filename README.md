@@ -1,5 +1,5 @@
 # Transcript Keyword Search
-Repo for searching through Word documents
+Repo for searching through PDF, DOCX, and Word documents
 
 ## Setup
 Make sure Python 2.7 is installed.

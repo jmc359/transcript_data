@@ -1,9 +1,4 @@
-abc
-def
-ghi
-cat
-dog
-lion
-Hello
-d
+r
+ss
+ad
 
