@@ -124,8 +124,8 @@ class KeywordSearch:
 
 		# Print totals
 		print "Total keyword finds:"
-		for key, value in self.counts.items():
-			print "\t{}: {}".format(key, value)
+		for key in self.keywords:
+			print "\t{}: {}".format(key, self.counts[key])
 		print "Search complete!"
 
 if __name__ == "__main__":
