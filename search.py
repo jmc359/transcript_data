@@ -77,6 +77,7 @@ class KeywordSearch:
 			with open(keyword_file, "r") as f:
 				text = f.read().splitlines()
 				self.keywords = [line for line in text if line]
+				self.counts = {keyword:0 for keyword in self.keywords}
 		except Exception as e:
 			print e
 			exit(1)
@@ -112,12 +113,19 @@ class KeywordSearch:
 
 			# Check for keywords
 			for word in self.keywords:
-				sys.stdout.write("\t{}: {}\n".format(word, str(len(re.findall(r"({})".format(word), "\n".join(self.text))))))
+				count = str(len(re.findall(r"({})".format(word), "\n".join(self.text))))
+				self.counts[word] += int(count)
+				sys.stdout.write("\t{}: {}\n".format(word, count))
 				for line in self.text:
 					found = re.findall(r"({})".format(word), line)
 					if len(found) > 0:
 						sys.stdout.write("\t\tLine {}: {}\n".format(str(self.text.index(line)+1), line))
 			print "Done searching through '{}'\n".format(transcript)
+
+		# Print totals
+		print "Total keyword finds:"
+		for key, value in self.counts.items():
+			print "\t{}: {}".format(key, value)
 		print "Search complete!"
 
 if __name__ == "__main__":
