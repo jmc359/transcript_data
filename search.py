@@ -52,13 +52,12 @@ class KeywordSearch:
 		try:
 			for item in os.listdir(curr_path):
 				path = os.path.join(curr_path, item)
-				if os.path.isdir(item):
+				if os.path.isdir(path):
 					self.traverse_directory(curr_path=path)
 				else:
 					self.transcripts.append(path)
 		except Exception as e:
-			print "Error opening '{}'...".format(path)
-			print e
+			print "Couldn't open '{}':".format(curr_path), e
 
 	def load_keywords(self, keyword_file):
 		"""
@@ -79,7 +78,7 @@ class KeywordSearch:
 				self.keywords = [line for line in text if line]
 				self.counts = {keyword:0 for keyword in self.keywords}
 		except Exception as e:
-			print e
+			print "Couldn't open '{}':".format(keyword_file), e
 			exit(1)
 
 	def parse(self):
