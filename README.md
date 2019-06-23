@@ -1,5 +1,5 @@
 # Transcript Keyword Search
-Repo for searching through PDF, DOCX, and Word documents for keywords/regular expressions
+Repository for searching through .pdf, .docx, and .txt documents for keywords/regular expressions
 
 ## Setup
 Make sure Python 2.7 is installed.
@@ -13,6 +13,6 @@ pip install -r requirements.txt --user
 ./search.py [-h] keyword_file directories [directories ...]
 ```
 
-`keyword_file` refers to the Enter separated text (.txt) file containing the desired keywords/regular expressions to be searched. 
+`keyword_file` refers to the Enter separated Text (.txt) file containing the desired keywords/regular expressions to be searched. 
 
-`directories` refers to the foldera or directories storing the desired Word (.docx), PDF (.pdf), or text (.txt) documents
+`directories` refers to the folders or directories storing the desired Word (.docx), PDF (.pdf), or Text (.txt) documents
