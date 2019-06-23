@@ -10,9 +10,9 @@ pip install -r requirements.txt --user
 
 ## Usage
 ```
-./search.py folder_name keyword_file
+./search.py [-h] keyword_file directories [directories ...]
 ```
 
-`folder_name` refers to the folder or directory storing the desired Word (.docx) documents
-
 `keyword_file` refers to the Enter separated text (.txt) file containing the desired keywords/regular expressions to be searched. 
+
+`directories` refers to the foldera or directories storing the desired Word (.docx), PDF (.pdf), or text (.txt) documents
