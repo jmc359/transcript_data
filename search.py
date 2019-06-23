@@ -21,8 +21,8 @@ class KeywordSearch:
 
 		Parameters
 		----------
-		directory: string
-			Path of directory where documents are located
+		directories: list of strings
+			Paths of directories where documents are located
 			Can be relative or absolute
 		keyword_file: string
 			Path of keyword file of Enter(newline)-separated
